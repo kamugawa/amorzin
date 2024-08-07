@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+</head>
+<body>
+    <section id="entrada">
+        <div class="coracao-container" onclick="showCurtain()">
+            <div class="coracao">
+                <div class="texto">Rafaela, abra meu coração.<br><br>Click me</div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="curtain"></div>
+    <div id="menu">
+        <a href="galeria.html">Galeria</a>
+        <a href="sentimentos.html">Meus Sentimentos</a>
+    </div>
+
+    <script>
+        function showCurtain() {
+            document.getElementById('curtain').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('curtain').style.display = 'none'; // Oculta a cortina
+                document.getElementById('menu').classList.add('hidden');
+            }, 1000); // Tempo para a animação da cortina
+        }
+    </script>
+</body>
+</html>

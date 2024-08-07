@@ -1,0 +1,163 @@
+/* CSS do coração e do texto */
+body {
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0;
+    background: url(https://i.pinimg.com/originals/ae/c7/03/aec703d6a803394ccbc38029b8ea3192.gif);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-color: #380202dc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#entrada {
+    text-align: center;
+}
+
+.coracao-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.coracao {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #ff6b6b;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.coracao:before,
+.coracao:after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.coracao:before {
+    top: -100px;
+    left: 0;
+}
+
+.coracao:after {
+    top: 0;
+    left: -100px;
+}
+
+.texto {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    text-align: center;
+    line-height: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(45deg);
+    }
+    100% {
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+.coracao-container:hover .coracao {
+    animation: pulse 1.5s infinite;
+}
+
+/* CSS para a cortina e o menu */
+#curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+}
+
+#curtain.show {
+    transform: translateY(0);
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  background-color: rgb(35, 35, 35);
+    color: #fbfbfb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    z-index: 20;
+}
+
+#menu.hidden {
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu a {
+    display: block;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+#menu a:hover {
+    color: #ff6b6b;
+}
+
+#voltar-inicio {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#voltar-inicio:hover {
+    background-color: #e55b5b;
+}
